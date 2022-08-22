@@ -2,9 +2,9 @@
     <cye-chat-user-list-header [firstName]="currentUser.firstName" [lastName]="currentUser.lastName"
         (logout)="logout()">
     </cye-chat-user-list-header>
-    <!-- <cye-chat-search-user (searchTerm)="searchUser($event)"></cye-chat-search-user> -->
+    <cye-chat-search-user (searchTerm)="searchUser($event)"></cye-chat-search-user>
     <div class="users">
-        <ng-container *ngFor="let user of users">
+        <ng-container *ngFor="let user of displayUsers">
             <cye-chat-user-details *ngIf="user.id !== currentUser.id" [user]="user" (currentChat)="currentChat.emit(user)">
             </cye-chat-user-details>
         </ng-container>

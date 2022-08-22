@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
@@ -7,7 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./write-message.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WriteMessageComponent implements OnInit {
+export class WriteMessageComponent {
 
   @Output() newMessage = new EventEmitter<string>();
 
@@ -17,9 +17,6 @@ export class WriteMessageComponent implements OnInit {
     this.form = fb.group({
       message: ['', Validators.compose([Validators.required, Validators.minLength(1)])]
     })
-  }
-
-  ngOnInit(): void {
   }
 
   public sendMessage() {

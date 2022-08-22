@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'cye-chat-messages-header',
@@ -6,14 +6,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./messages-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessagesHeaderComponent implements OnInit {
+export class MessagesHeaderComponent {
 
   @Input() firstName: string;
   @Input() lastName: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

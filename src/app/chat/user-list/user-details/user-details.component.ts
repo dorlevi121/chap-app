@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -7,14 +7,10 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./user-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserDetailsComponent implements OnInit {
+export class UserDetailsComponent {
 
   @Input() user: User;
+  @Input() isCurrentChat: boolean;
   @Output() currentChat = new EventEmitter<void>();
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

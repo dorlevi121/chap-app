@@ -1,5 +1,5 @@
 import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
 import { Message } from 'src/app/models/meesage';
@@ -13,7 +13,7 @@ import { AppState } from 'src/app/store/app.reducer';
   styleUrls: ['./messages.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class MessagesComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MessagesComponent implements OnInit, OnDestroy {
 
   @Input() currentUser: User;
   @Input() set currentChatChnage(value: User) {
@@ -25,19 +25,13 @@ export class MessagesComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public messages: Message[] = [];
   public currentChat: User;
-  public destroy$: Subject<void> = new Subject<void>();
+  private destroy$: Subject<void> = new Subject<void>();
 
   @ViewChild(CdkVirtualScrollViewport) viewPort: CdkVirtualScrollViewport;
 
   constructor(private store: Store<AppState>, private chatService: ChatService, private cd: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-  }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.viewPort.scrollTo({ bottom: 0 });
-    }, 0);
   }
 
   public sendMessage(message: string) {
@@ -53,6 +47,10 @@ export class MessagesComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private messageLisener() {
+    setTimeout(() => {
+      this.viewPort.scrollToIndex(this.messages.length - 1)
+    }, 0);
+
     this.chatService.getMessageListener(this.currentUser.id, this.currentChat.id)
       .pipe(
         takeUntil(this.destroy$))

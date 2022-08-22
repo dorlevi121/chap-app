@@ -18,7 +18,8 @@ export class UserListComponent implements OnInit, OnDestroy {
 
   destroy$: Subject<void> = new Subject<void>();
 
-  public users: User[];
+  private users: User[];
+  public displayUsers: User[];
 
   constructor(private store: Store<AppState>, private cd: ChangeDetectorRef) { }
 
@@ -27,11 +28,16 @@ export class UserListComponent implements OnInit, OnDestroy {
       takeUntil(this.destroy$))
       .subscribe(state => {
         this.users = state.users;
-        this.cd.markForCheck()
+        this.displayUsers = this.users;
+        this.cd.markForCheck();
       })
   }
 
   public searchUser(searchTerm: string) {
+    this.displayUsers = this.users.filter(user => {
+      const name = user.firstName.toLowerCase() + ' ' + user.lastName.toLowerCase();
+      return name.includes(searchTerm);
+    });
   }
 
   public logout() {

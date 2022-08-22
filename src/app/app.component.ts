@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { User } from './models/user';
 import { AppState } from './store/app.reducer';
+import { addUserToActiveList } from './store/user/user.actions';
 
 @Component({
   selector: 'cye-chat-root',
@@ -22,5 +23,9 @@ export class AppComponent implements OnInit {
       this.users = state.users;
       this.activeUsers = this.users.filter(user => user.isActive).length;
     });
+  }
+
+  public login(userId: string) {
+    this.store.dispatch(addUserToActiveList({ userId }));
   }
 }

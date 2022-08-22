@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../store/user/user.reducer';
+import { AppState } from '../store/app.reducer';
 
 @Injectable({
   providedIn: 'root'

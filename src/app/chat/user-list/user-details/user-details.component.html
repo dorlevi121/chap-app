@@ -1,4 +1,4 @@
-<div  (click)="currentChat.emit()" class="user">
+<div (click)="currentChat.emit()" class="user" [ngClass]="{'current-chat' :isCurrentChat}">
     <div class="name">
         <span class="logo">{{user.firstName + ' ' + user.lastName | logoName}}</span>
         <p class="full-name">{{user.firstName + ' ' + user.lastName}}</p>

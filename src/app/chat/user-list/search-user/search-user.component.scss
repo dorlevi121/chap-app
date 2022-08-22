@@ -1,0 +1,17 @@
+@import '../../../../assets/style/main.scss';
+
+.search-wrapper {
+    border-bottom: 1px solid $grey;
+
+    & input {
+        display: block;
+        margin: $margin-small auto;
+        width: 90%;
+        outline: none;
+        border: 1px solid lightgray;
+        background: $grey;
+        border-radius: 8px;
+        flex: 1;
+        padding: 10px 10px;
+    }
+}
