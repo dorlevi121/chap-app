@@ -1,0 +1,3 @@
+<form [formGroup]="form" class="write-message-wrapper">
+    <input formControlName="message" type="text" placeholder="Type a message" (keyup.enter)="sendMessage()" />
+</form>

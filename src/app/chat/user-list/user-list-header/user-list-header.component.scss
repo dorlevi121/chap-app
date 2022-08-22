@@ -1,0 +1,30 @@
+@import '../../../../assets/style/main.scss';
+
+.user-list-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $grey;
+    padding: 10px;
+    height: 70px;
+    border-bottom: 1px solid black;
+    overflow: auto;
+
+    & .name {
+        display: flex;
+        align-items: center;
+
+        & .logo {
+            @include user-logo;
+        }
+
+        & .full-name {
+            text-transform: capitalize;
+            margin-left: $margin-medium;
+        }
+    }
+
+    & button {
+        @include button;
+    }
+}

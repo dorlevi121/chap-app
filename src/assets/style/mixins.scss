@@ -1,0 +1,38 @@
+@import "./colors.scss";
+@import "./responsive.scss";
+
+@mixin translateToCenter {
+  transform: translate(-50%, -50%);
+}
+
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  @include translateToCenter;
+}
+
+@mixin button {
+  cursor: pointer;
+  // margin-left: 20px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: $teal-green;
+  text-decoration: inherit;
+  color: $white;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  transition: all 0.2 ease-in-out;
+  border: none;
+
+  &:hover {
+    background-color: $teal-green-dark;
+  }
+}
+
+@mixin user-logo {
+  padding: $margin-small;
+  background-color: $teal-green;
+  border-radius: 50%;
+  color: $white;
+  text-transform: uppercase;
+}

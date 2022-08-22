@@ -1,0 +1,17 @@
+@import '../../../../assets/style/main.scss';
+
+.write-message-wrapper {
+
+    & input {
+        width: 100%;
+        outline: none;
+        border:1px solid lightgray;
+        border-radius: 30px;
+        flex:1;
+        padding: 10px 10px 10px 20px;
+  
+        &::placeholder {
+          padding-left: 0.27rem;
+        }
+    }
+}

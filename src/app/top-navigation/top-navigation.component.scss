@@ -1,0 +1,28 @@
+@import '../../assets/style/main.scss';
+
+.top-navigation-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    background-color: $teal-green;
+
+    & .logo {
+        color: white;
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    & .login {
+
+        & select {
+            padding: 5px;
+            border: none;
+        }
+
+        & button {
+            margin-left: $margin-small;
+            padding: 5px;
+        }
+    }
+}

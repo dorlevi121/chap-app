@@ -1,0 +1,15 @@
+<div class="top-navigation-wrapper">
+    <p class="logo">CYE Chat</p>
+    <div class="login">
+        <select name="users" (change)="userChanges($event)">
+            <option [value]="null" [defaultSelected]="true">Choose person</option>
+            <ng-container *ngFor="let user of (users | async)?.users">
+                <option *ngIf="!user.isActive" [value]="user.id">
+                    {{user.firstName}}
+                </option>
+            </ng-container>
+        </select>
+
+        <button (click)="login()" [disabled]="!userId">Login</button>
+    </div>
+</div>

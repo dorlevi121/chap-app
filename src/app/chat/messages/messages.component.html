@@ -1,0 +1,15 @@
+<div class="messages-wrapper">
+    <cye-chat-messages-header [firstName]="currentChat.firstName" [lastName]="currentChat.lastName">
+    </cye-chat-messages-header>
+
+    <cdk-virtual-scroll-viewport class="messages-list" [itemSize]="70">
+        <ng-container *cdkVirtualFor="let message of messages">
+            <cye-chat-message [text]="message.data" [timestamp]="message.timestamp"
+                [isSender]="message.from === currentUser.id">
+            </cye-chat-message>
+        </ng-container>
+    </cdk-virtual-scroll-viewport>
+    <div class="write-message">
+        <cye-chat-write-message (newMessage)="sendMessage($event)"></cye-chat-write-message>
+    </div>
+</div>

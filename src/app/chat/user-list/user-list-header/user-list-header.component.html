@@ -1,0 +1,7 @@
+<div class="user-list-header-wrapper">
+    <div class="name">
+        <span class="logo">{{firstName + ' ' + lastName | logoName}}</span>
+        <span class="full-name">{{firstName + ' ' + lastName}}</span>
+    </div>
+    <button (click)="logout.emit()">Log Out</button>
+</div>

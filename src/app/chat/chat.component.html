@@ -1,0 +1,16 @@
+<div class="chat-wrapper">
+    <cye-chat-user-list class="users-list" [currentUser]="currentUser" (currentChat)="currentChat = $event">
+    </cye-chat-user-list>
+    <cye-chat-messages *ngIf="currentChat;else no_chat" class="messages" [currentUser]="currentUser"
+        [currentChatChnage]="currentChat">
+    </cye-chat-messages>
+
+    <ng-template #no_chat>
+        <div class="no-chat">
+            <img src="https://i.gadgets360cdn.com/large/whatsapp_multi_device_support_update_image_1636207150180.jpg?downsize=950:*"
+                alt="no chat selected">
+            <p>Select a friend you want to talk to</p>
+        </div>
+    </ng-template>
+
+</div>

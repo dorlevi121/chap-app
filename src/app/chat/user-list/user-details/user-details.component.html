@@ -1,0 +1,7 @@
+<div  (click)="currentChat.emit()" class="user">
+    <div class="name">
+        <span class="logo">{{user.firstName + ' ' + user.lastName | logoName}}</span>
+        <p class="full-name">{{user.firstName + ' ' + user.lastName}}</p>
+    </div>
+    <span class="status" [ngClass]="{'active' : user.isActive}"></span>
+</div>

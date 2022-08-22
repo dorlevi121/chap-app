@@ -1,0 +1,26 @@
+@import '../../../../assets/style/main.scss';
+
+.message-wrapper {
+    position: relative;
+    width: fit-content;
+    max-width: 400px;
+    padding: 10px 10px 5px;
+    border-radius: 10px;
+    background-color: #f6f2f2;
+    margin: $margin-small 0;
+    padding: $margin-small $margin-medium;
+
+    & span {
+        position: relative;
+        right: 0;
+        bottom: 0;
+        margin-left: 10px;
+        font-size: x-small;
+        color: darkgray;
+    }
+}
+
+.is-sender {
+    margin-left: auto;
+    background-color: #DCF8C6;
+}
