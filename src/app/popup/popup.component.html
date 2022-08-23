@@ -1,0 +1,13 @@
+<div id="snack-bar" #snackBar>
+    <div class="snack-bar-text-icon">
+        <p class="snack-bar-message">
+            {{text}}
+        </p>
+        <button class="close" (click)="close()">
+            X
+        </button>
+    </div>
+    <div id="snack-barProgress">
+        <div id="snack-barBar" #alertBar></div>
+    </div>
+</div>

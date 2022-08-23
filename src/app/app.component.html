@@ -1,6 +1,7 @@
 <div class="app-wrapper">
     <div class="top-nav">
-        <cye-chat-top-navigation [users]="users" [activeUsers]="activeUsers" (login)="login($event)"></cye-chat-top-navigation>
+        <cye-chat-top-navigation [users]="users" [activeUsers]="activeUsers" (login)="login($event)">
+        </cye-chat-top-navigation>
     </div>
     <div class="chats">
         <ng-container *ngFor="let user of users">
@@ -8,6 +9,10 @@
                 [currentUser]="user">
             </cye-chat-chat>
         </ng-container>
-
     </div>
+
+    <ng-container *ngIf="popup">
+        <ng-template [ngComponentOutletInjector]="popupInjector" [ngComponentOutlet]="popup | async">
+        </ng-template>
+    </ng-container>
 </div>

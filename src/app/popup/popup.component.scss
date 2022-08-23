@@ -1,0 +1,85 @@
+@import "../../assets/style/main.scss";
+
+#snack-bar {
+    position: fixed;
+    bottom: 40px;
+    left: calc(50% - 200px);
+    width: 400px;
+    visibility: hidden;
+    color: $white;
+    border-radius: 10px;
+    background: $red;
+    overflow: hidden;
+}
+
+.snack-bar-text-icon {
+    align-items: stretch;
+    box-shadow: 0 1px 1px rgb(10 10 10 / 10%);
+    display: flex;
+    width: 100%;
+
+}
+
+.snack-bar-message {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    padding: 15px 20px;
+}
+
+.close {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background: 0 0;
+    border: none;
+    color: currentColor;
+    font-family: inherit;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+
+}
+
+#snack-bar.show {
+    visibility: visible;
+}
+
+
+#snack-bar.show {
+    animation: show 0.5s forwards;
+}
+
+@keyframes show {
+    0% {
+        transform: translate(-15px, 15px) scale(0);
+    }
+
+    50% {
+        transform: translate(-15px, 15px) scale(1.2);
+    }
+
+    70% {
+        transform: translate(-15px, 15px) scale(0.9);
+    }
+
+    100% {
+        transform: translate(-15px, 15px) scale(1);
+    }
+}
+
+#snack-barBar {
+    height: 2px;
+    background-color: #ffffffb3;
+    color: white;
+}
+
+#snack-barProgress {
+    background: #323232;
+    width: 100%
+}

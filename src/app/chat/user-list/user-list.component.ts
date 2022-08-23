@@ -16,7 +16,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   @Input() currentUser: User;
   @Output() currentChatChange = new EventEmitter<User>();
 
-  destroy$: Subject<void> = new Subject<void>();
+  private destroy$: Subject<void> = new Subject<void>();
 
   private users: User[];
   public displayUsers: User[];

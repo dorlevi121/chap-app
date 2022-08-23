@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from '../models/user';
+import { PopupService } from '../services/popup.service';
 
 @Component({
   selector: 'cye-chat-top-navigation',
@@ -15,7 +16,7 @@ export class TopNavigationComponent {
 
   public userId: string | null;
 
-  constructor() { }
+  constructor(private popupService: PopupService) { }
 
   public userChanges(event: any): void {
     this.userId = event.target.value;
@@ -24,9 +25,13 @@ export class TopNavigationComponent {
   public userLogin() {
     if (!this.userId)
       return;
-
-    this.login.emit(this.userId);
-    this.userId = null;
+    else if (this.activeUsers >= 4) {
+      this.popupService.openPopup('Up to 4 users can be connected at the same time.')
+    }
+    else {
+      this.login.emit(this.userId);
+      this.userId = null;
+    }
   }
 
 }

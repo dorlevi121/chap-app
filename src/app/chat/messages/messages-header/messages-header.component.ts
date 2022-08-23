@@ -10,4 +10,5 @@ export class MessagesHeaderComponent {
 
   @Input() firstName: string;
   @Input() lastName: string;
+  
 }

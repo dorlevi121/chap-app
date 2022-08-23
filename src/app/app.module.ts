@@ -33,7 +33,7 @@ import { environment } from '../environments/environment';
     WriteMessageComponent,
     UserListComponent,
     LogoNamePipe,
-    UserDetailsComponent
+    UserDetailsComponent,
   ],
   imports: [
     BrowserModule,
