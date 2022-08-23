@@ -1,11 +1,12 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { takeUntil, debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 
 @Component({
   selector: 'cye-chat-search-user',
   templateUrl: './search-user.component.html',
-  styleUrls: ['./search-user.component.scss']
+  styleUrls: ['./search-user.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchUserComponent implements OnInit, OnDestroy {
 

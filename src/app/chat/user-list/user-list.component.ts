@@ -14,12 +14,13 @@ import { removeUserFromActiveList } from 'src/app/store/user/user.actions';
 export class UserListComponent implements OnInit, OnDestroy {
 
   @Input() currentUser: User;
-  @Output() currentChat = new EventEmitter<User>();
+  @Output() currentChatChange = new EventEmitter<User>();
 
   destroy$: Subject<void> = new Subject<void>();
 
   private users: User[];
   public displayUsers: User[];
+  public currentChatId: string = '';
 
   constructor(private store: Store<AppState>, private cd: ChangeDetectorRef) { }
 
@@ -36,7 +37,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   public searchUser(searchTerm: string) {
     this.displayUsers = this.users.filter(user => {
       const name = user.firstName.toLowerCase() + ' ' + user.lastName.toLowerCase();
-      return name.includes(searchTerm);
+      return name.includes(searchTerm.toLocaleLowerCase());
     });
   }
 

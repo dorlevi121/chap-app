@@ -10,6 +10,10 @@
     margin: $margin-small 0;
     padding: $margin-small $margin-medium;
 
+    & p {
+        word-wrap: break-word
+    }
+
     & span {
         position: relative;
         right: 0;

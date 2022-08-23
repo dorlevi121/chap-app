@@ -8,7 +8,7 @@ import { addUserToActiveList } from './store/user/user.actions';
 @Component({
   selector: 'cye-chat-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
 
@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.store.select('user').subscribe(state => {
       this.users = state.users;
-      this.activeUsers = this.users.filter(user => user.isActive).length;
+      this.activeUsers = state.activeUsers;
     });
   }
 

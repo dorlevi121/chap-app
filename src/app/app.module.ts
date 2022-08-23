@@ -17,6 +17,8 @@ import { reducers } from './store/app.reducer';
 import { LogoNamePipe } from './pipes/logo-name.pipe';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { UserDetailsComponent } from './chat/user-list/user-details/user-details.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,10 @@ import { UserDetailsComponent } from './chat/user-list/user-details/user-details
     StoreModule.forRoot(reducers),
     FormsModule,
     ReactiveFormsModule,
-    ScrollingModule
+    ScrollingModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, logOnly: environment.production, name: 'DevTools & Debugging in NgRx'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

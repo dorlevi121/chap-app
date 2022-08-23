@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Subject } from 'rxjs';
 import { Message } from '../models/meesage';
-import { AppState } from '../store/app.reducer';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
@@ -13,7 +11,7 @@ export class ChatService {
   private messageListener: { [room: string]: Subject<Message> } = {}
   private historyMessages: { [room: string]: Message[] } = {}
 
-  constructor(private store: Store<AppState>, private lsService: LocalStorageService) {
+  constructor(private lsService: LocalStorageService) {
     this.historyMessages = JSON.parse(lsService.get('messages') || '{}');
   }
 
@@ -41,7 +39,6 @@ export class ChatService {
 
   public sendMessage(message: Message, from: string, to: string) {
     const room = this.generateRoomId(from, to)
-    // this.store.dispatch(addMessageToHistory({ room: this.generateRoomId(from, to), history: message }));
     this.historyMessages[room].push(message);
     this.messageListener[room].next(message);
     this.saveToLocalStorage();

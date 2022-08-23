@@ -1,5 +1,5 @@
 <div class="chat-wrapper">
-    <cye-chat-user-list class="users-list" [currentUser]="currentUser" (currentChat)="currentChat = $event">
+    <cye-chat-user-list class="users-list" [currentUser]="currentUser" (currentChatChange)="currentChat = $event">
     </cye-chat-user-list>
     <cye-chat-messages *ngIf="currentChat;else no_chat" class="messages" [currentUser]="currentUser"
         [currentChatChnage]="currentChat">

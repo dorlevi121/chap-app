@@ -1,6 +1,6 @@
 <div class="app-wrapper">
     <div class="top-nav">
-        <cye-chat-top-navigation [users]="users" (login)="login($event)"></cye-chat-top-navigation>
+        <cye-chat-top-navigation [users]="users" [activeUsers]="activeUsers" (login)="login($event)"></cye-chat-top-navigation>
     </div>
     <div class="chats">
         <ng-container *ngFor="let user of users">

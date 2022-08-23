@@ -4,6 +4,7 @@ import * as actions from "./user.actions";
 
 export interface UserState {
     users: User[];
+    activeUsers: number;
 }
 
 const initialState: UserState = {
@@ -31,15 +32,28 @@ const initialState: UserState = {
             firstName: "April",
             lastName: "O'neil",
             isActive: false
+        },
+        {
+            id: '5',
+            firstName: "Mark",
+            lastName: "Rich",
+            isActive: false
+        },
+        {
+            id: '4',
+            firstName: "Sanna",
+            lastName: "Marin",
+            isActive: false
         }
     ],
+    activeUsers: 2
 }
 
 export const userReducer = createReducer(
     initialState,
     on(actions.addUserToActiveList, (state, payload) => {
         const userIndex = state.users.findIndex(user => user.id === payload.userId);
-        if (userIndex === -1) {
+        if (userIndex === -1 || state.activeUsers >= 4) {
             return state;
         }
         const user: User = { ...state.users[userIndex] };
@@ -49,7 +63,8 @@ export const userReducer = createReducer(
 
         return {
             ...state,
-            users: [...copyUsers]
+            users: [...copyUsers],
+            activeUsers: state.activeUsers + 1
         }
     }),
     on(actions.removeUserFromActiveList, (state, payload) => {
@@ -66,7 +81,8 @@ export const userReducer = createReducer(
 
         return {
             ...state,
-            users: [...copyUsers]
+            users: [...copyUsers],
+            activeUsers: state.activeUsers - 1
         }
     })
 );

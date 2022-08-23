@@ -5,7 +5,9 @@
     <cye-chat-search-user (searchTerm)="searchUser($event)"></cye-chat-search-user>
     <div class="users">
         <ng-container *ngFor="let user of displayUsers">
-            <cye-chat-user-details *ngIf="user.id !== currentUser.id" [user]="user" (currentChat)="currentChat.emit(user)">
+            <cye-chat-user-details *ngIf="user.id !== currentUser.id" [user]="user"
+                [isCurrentChat]="user.id === currentChatId"
+                (currentChat)="currentChatChange.emit(user); currentChatId = user.id;">
             </cye-chat-user-details>
         </ng-container>
 

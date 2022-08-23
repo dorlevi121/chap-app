@@ -16,6 +16,10 @@
 
         & .chat {
             height: 100%;
+
+            &:not(:first-of-type) {
+              border-left: 1px solid black;
+            }
         }
     }
 }
